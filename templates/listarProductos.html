@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <div>
+        <button>Agregar</button>
+    </div>
+    <div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for producto in productos %}
+                <tr>
+                  <th scope="row">{{producto.codigo}}</th>
+                  <td>{{producto.nombre}}</td>
+                  <td>${{producto.precio}}</td>
+                  <td>{{producto.categoria}}</td>
+                  <td>
+                    <img src="../static/img/{{producto._id}}.jpg" alt="{{producto.nombre}}">
+                  </td>
+                  <td>
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    <i class="fa-solid fa-trash"></i>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+    </div>
+{% endblock %}
